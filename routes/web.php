@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\cursoController;
+use App\Http\Controllers\courseController;
 use App\Http\Controllers\homeController;
 
 /* 
@@ -17,8 +17,14 @@ use App\Http\Controllers\homeController;
 
 Route::get('/', homeController::class);
 
-Route::get('courses', [cursoController::class, 'index']);
+Route::get('courses', [courseController::class, 'index'])->name('courses.index');
 
-Route::get('courses/create', [cursoController::class, 'create']);
+Route::get('courses/create', [courseController::class, 'create'])->name('courses.create');
 
-Route::get('courses/{course}', [cursoController::class, 'show']);
+Route::post('courses', [courseController::class, 'store'])->name('courses.store');
+
+Route::get('courses/{course}', [courseController::class, 'show'])->name('courses.show');
+
+Route::get('courses/{course}/edit', [courseController::class, 'edit'])->name('courses.edit');
+
+Route::put('courses/{course}/update',[courseController::class, 'update'])->name('courses.update');

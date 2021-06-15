@@ -17,6 +17,7 @@ class CreateCoursesTable extends Migration
             $table->id();
             $table->string('name');
             $table->text('desc');
+            $table->string('categories');
             $table->timestamps();
         });
     }
